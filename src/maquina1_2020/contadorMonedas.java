@@ -16,13 +16,19 @@ package PracticaEDE;
 			cantidad+=m;
 		}
 		
-		public float DarCambioDe (float c){
-			float calculo=0;
-			calculo=cantidad-c;
-			disponible+=c;
-			disponible-=0.75;
-			return calculo;
-		}
+		public float darCambioDe (float c) {
+
+            float cambio = 0;
+
+            if (this.cantidad < c) {
+                cambio = -1;
+            } else {
+                cambio = this.cantidad - c;
+                    this.disponible += c;
+            }
+
+        return cambio;
+        }
 		
 		public float Retornar (){
 			return cantidad;
