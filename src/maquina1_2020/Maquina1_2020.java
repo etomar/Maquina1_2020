@@ -20,14 +20,14 @@ public class Maquina1_2020 {
      */
     public static void main(String[] args) throws IOException {
         //Scanner tec = new Scanner(System.in);
-        MaquinaBebidas mi_maquina = new MaquinaBebidas();
-	char c;
+        MaquinaDeBebidas mi_maquina = new MaquinaDeBebidas();
+		char c;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
 	//inicializo la maquina con:
 	//  50 euros para cambio
 	//  25 botes en cada dispensador
 	//  Precio de 0.75 euros por bote
-	mi_maquina.iniciarMaquinaDeBebidas(50F, 25, 0.75F);
+		mi_maquina.iniciarMaquinaDeBebidas(50F, 25, 0.75F);
 
 	do 
 	{
