@@ -4,14 +4,16 @@
  * and open the template in the editor.
  */
 package maquina1_2020;
-import java.util.*;
+
+import java.util.Scanner;
+
 /**
  *
  * @author jenif
  */
 public class DispensadorDeBotes {
-    
-    Scanner tec=new Scanner (System.in);
+ 
+     Scanner tec=new Scanner (System.in);
 
     private int botes; //Numero actual de botes.
 
@@ -42,4 +44,6 @@ public class DispensadorDeBotes {
 
         }
 
+    
+    
 }
