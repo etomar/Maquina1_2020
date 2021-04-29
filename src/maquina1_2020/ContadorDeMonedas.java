@@ -1,4 +1,4 @@
-package practica6EDE;
+package maquina1_2020;
 
 public class ContadorDeMonedas {
 	private float cantidad;

@@ -1,9 +1,9 @@
-package practica6EDE;
+package maquina1_2020;
 
 public class MaquinaDeBebidas {
 	private ContadorDeMonedas contador; //Contador de monedas de la maquina 
 	private DispensadorDeBotes cola; //Cinco dispensadores de botes: limon, naranja, tonica, agua; 
-	private float precio;//Precio de las bebidas(común para todas) 
+	private float precio;//Precio de las bebidas(comï¿½n para todas) 
 	
 	/* Inicializa la maquina y todos los elementos asociados
 	 * Entradas: float m, cantidad inicial de monedas para el cambio
@@ -34,7 +34,7 @@ public class MaquinaDeBebidas {
 		this.precio=pvp;
 	}
 	
-	/* Responder a una acción del usuario. Discrimina el tipo de accion y utiliza las operaciones privadas
+	/* Responder a una acciï¿½n del usuario. Discrimina el tipo de accion y utiliza las operaciones privadas
 	 * Entradas: char o, la orden del usuario
 	 * Salidas: Ninguna
 	 */
@@ -54,7 +54,7 @@ public class MaquinaDeBebidas {
 			break;
 		
 		case 'R': case 'r':
-			System.out.println("Devolucion: "+contador.retornar()+"€");
+			System.out.println("Devolucion: "+contador.retornar()+"ï¿½");
 			break;
 			
 		case '1': case '2': case '3': case '4': case '5':
@@ -71,12 +71,12 @@ public class MaquinaDeBebidas {
 	 */
 	public void visualizarMaquina () {
 		System.out.printf("Cantidad de botes: "+cola.botesDisponibles()+""
-				+ "\nPrecio de las bebidas: "+precio+"€"
+				+ "\nPrecio de las bebidas: "+precio+"ï¿½"
 				+ "\nSaldo: %.2f", contador.saldo());
-		System.out.println("€");
+		System.out.println("ï¿½");
 	}
 	
-	/* Realiza las acciones relacionadas con la introducción de monedas
+	/* Realiza las acciones relacionadas con la introducciï¿½n de monedas
 	 * Entradas: char o, la orden del usuario
 	 * Salidas: Ninguna
 	 */ 
@@ -100,7 +100,7 @@ public class MaquinaDeBebidas {
 		}
 	}
 	
-	/* Realiza las acciones relacionadas con la selección de una bebida
+	/* Realiza las acciones relacionadas con la selecciï¿½n de una bebida
 	 * Entradas: char o, la orden del usuario
 	 * Salidas: Ninguna
 	 */ 
@@ -111,12 +111,12 @@ public class MaquinaDeBebidas {
 			if(cola.pulsarBoton()==true) {
 				if(contador.saldo()>=precio) {
 					System.out.printf("DEVOLUCION: %.2f",contador.darCambioDe(precio));
-					System.out.println("€");
+					System.out.println("ï¿½");
 					cola.setBotes(botes-1);
 				}else if (contador.saldo()==0){
 					System.out.println("Inserte monedas.");
 				}
-				else System.out.println("Monedas insuficientes. Faltan: "+Math.abs(contador.darCambioDe(precio))+"€");
+				else System.out.println("Monedas insuficientes. Faltan: "+Math.abs(contador.darCambioDe(precio))+"ï¿½");
 			}
 			break;
 		}

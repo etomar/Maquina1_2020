@@ -23,6 +23,10 @@ public class DispensadorDeBotes {
         this.botes=i;
 
     }
+    
+    public void setBotes(int b) {
+		this.botes=b;
+	}
 
     public boolean pulsarBoton () {
             boolean hayBotes=false;
