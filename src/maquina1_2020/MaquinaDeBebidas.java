@@ -1,15 +1,37 @@
 package maquina1_2020;
 
+/**
+ * Clase MaquinaDeBebidas
+ * 
+ * Contiene informacion de cada maquina
+ * 
+ * @author JuanBohigues
+ * @version 1.0
+ */
+
 public class MaquinaDeBebidas {
-	private ContadorDeMonedas contador; //Contador de monedas de la maquina 
-	private DispensadorDeBotes cola; //Cinco dispensadores de botes: limon, naranja, tonica, agua; 
-	private float precio;//Precio de las bebidas(com�n para todas) 
+	//Atributos
+	/**
+	 * Contador de monedas de la maquina 
+	 */
+	private ContadorDeMonedas contador; 
 	
-	/* Inicializa la maquina y todos los elementos asociados
-	 * Entradas: float m, cantidad inicial de monedas para el cambio
-	 * int b, cantidad inicial de botes en los dispensadores
-	 * float pvp, precio de las bebidas
-	 * Salidas: Ninguna
+	/**
+	 * Cinco dispensadores de botes: limon, naranja, tonica, agua 
+	 */
+	private DispensadorDeBotes cola; 
+	
+	/**
+	 * Precio de las bebidas(común para todas) 
+	 */
+	private float precio;
+	
+	//Constructores
+	/** 
+	 * Inicializa la maquina y todos los elementos asociados
+	 * @param m cantidad inicial de monedas para el cambio
+	 * @param b cantidad inicial de botes en los dispensadores
+	 * @param pvp precio de las bebidas
 	 */
 	public MaquinaDeBebidas (float m, int b, float pvp) {
 		this.contador=new ContadorDeMonedas(m);
@@ -17,16 +39,21 @@ public class MaquinaDeBebidas {
 		this.precio=pvp;
 	}
 	
+	/**
+	 * Constructor por defecto
+	 */
 	public MaquinaDeBebidas() {
-		
+		this.contador=new ContadorDeMonedas(0);
+		this.cola=new DispensadorDeBotes(0);
+		this.precio=0;
 	}
 	
-	/* Metodo que aparece en el main de Emiliano
+	//Metodos publicos
+	/**
 	 * Inicializa el constructor
-	 * Entradas: float m, cantidad inicial de monedas para el cambio
-	 * int b, cantidad inicial de botes en los dispensadores
-	 * float pvp, precio de las bebidas
-	 * Salidas: Ninguna
+	 * @param m cantidad inicial de monedas para el cambio
+	 * @param b cantidad inicial de botes en los dispensadores
+	 * @param pvp precio de las bebidas
 	 */
 	public void iniciarMaquinaDeBebidas(float m, int b, float pvp) {
 		this.contador=new ContadorDeMonedas(m);
@@ -34,9 +61,9 @@ public class MaquinaDeBebidas {
 		this.precio=pvp;
 	}
 	
-	/* Responder a una acci�n del usuario. Discrimina el tipo de accion y utiliza las operaciones privadas
-	 * Entradas: char o, la orden del usuario
-	 * Salidas: Ninguna
+	/** 
+	 * Responder a una acción del usuario. Discrimina el tipo de accion y utiliza las operaciones privadas
+	 * @param o la orden del usuario
 	 */
 	public void darOrden (char o) {
 		switch (o) {
@@ -54,7 +81,7 @@ public class MaquinaDeBebidas {
 			break;
 		
 		case 'R': case 'r':
-			System.out.println("Devolucion: "+contador.retornar()+"�");
+			System.out.println("Devolucion: "+contador.retornar()+"€");
 			break;
 			
 		case '1': case '2': case '3': case '4': case '5':
@@ -64,21 +91,22 @@ public class MaquinaDeBebidas {
 		}
 	}
 	
-	/* Visualiza la informacion de interes sobre la maquina
+	/** 
+	 * Visualiza la informacion de interes sobre la maquina:
 	 * Botes en cada dispensador, precio de las bebidas, saldo del cliente
-	 * Entradas: Ninguna
-	 * Salidas: Ninguna
 	 */
 	public void visualizarMaquina () {
 		System.out.printf("Cantidad de botes: "+cola.botesDisponibles()+""
-				+ "\nPrecio de las bebidas: "+precio+"�"
+				+ "\nPrecio de las bebidas: "+precio+"€"
 				+ "\nSaldo: %.2f", contador.saldo());
-		System.out.println("�");
+		System.out.println("€");
 	}
 	
-	/* Realiza las acciones relacionadas con la introducci�n de monedas
-	 * Entradas: char o, la orden del usuario
-	 * Salidas: Ninguna
+	
+	//Metodos privados
+	/** 
+	 * Realiza las acciones relacionadas con la introducción de monedas
+	 * @param char o, la orden del usuario
 	 */ 
 	private void ordenMonedas (char o) {
 		switch (o) {
@@ -100,9 +128,9 @@ public class MaquinaDeBebidas {
 		}
 	}
 	
-	/* Realiza las acciones relacionadas con la selecci�n de una bebida
-	 * Entradas: char o, la orden del usuario
-	 * Salidas: Ninguna
+	/**
+	 * Realiza las acciones relacionadas con la selección de una bebida
+	 * @param char o, la orden del usuario
 	 */ 
 	private void ordenSeleccion (char o) {
 		int botes=cola.botesDisponibles();
@@ -111,15 +139,14 @@ public class MaquinaDeBebidas {
 			if(cola.pulsarBoton()==true) {
 				if(contador.saldo()>=precio) {
 					System.out.printf("DEVOLUCION: %.2f",contador.darCambioDe(precio));
-					System.out.println("�");
+					System.out.println("€");
 					cola.setBotes(botes-1);
 				}else if (contador.saldo()==0){
 					System.out.println("Inserte monedas.");
 				}
-				else System.out.println("Monedas insuficientes. Faltan: "+Math.abs(contador.darCambioDe(precio))+"�");
+				else System.out.println("Monedas insuficientes. Faltan: "+Math.abs(contador.darCambioDe(precio))+"€");
 			}
 			break;
 		}
 	}
-
 }
