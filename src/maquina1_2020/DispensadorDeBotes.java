@@ -8,8 +8,10 @@ package maquina1_2020;
 import java.util.Scanner;
 
 /**
- *
- * @author jenif
+ * 
+ *@author Jenifer Benavent Zapata
+ *@version 1.0
+ * 
  */
 public class DispensadorDeBotes {
  
@@ -17,17 +19,32 @@ public class DispensadorDeBotes {
 
     private int botes; //Numero actual de botes.
 
-    
+   
+    /**
+     * 
+     * @param i
+     * 
+     */
     public DispensadorDeBotes (int i) {
 
         this.botes=i;
 
     }
     
+    /**
+     * 
+     * @param b 
+     */
     public void setBotes(int b) {
-		this.botes=b;
-	}
+        
+	this.botes=b;
+        
+    }
 
+   /**
+    * 
+    * @return boolean
+    */
     public boolean pulsarBoton () {
             boolean hayBotes=false;
 
@@ -40,7 +57,11 @@ public class DispensadorDeBotes {
 
     }
 
-    
+    /**
+     * 
+     * @return int
+     * 
+     */
     public int botesDisponibles () {
         int botesDisp=botes;
         System.out.println("---Num de botes disponibles---");
